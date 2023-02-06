@@ -19,3 +19,9 @@ Route :: get('/human/show/{human}', [MainController :: class, 'humanShow'])
 
 Route :: get('/human/delete/{human}', [MainController :: class, 'humanDelete'])
     -> name('human.delete');
+
+Route :: get('/human/create', [MainController :: class, 'humanCreate'])
+    -> name('human.create');
+
+Route :: post('/human/store', [MainController :: class, 'humanStore'])
+    -> name('human.store');

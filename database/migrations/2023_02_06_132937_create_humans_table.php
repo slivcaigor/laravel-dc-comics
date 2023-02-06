@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('firstName', 32);
             $table->string('lastName', 32);
             $table->date('dateOfBirth');
-            $table->integer('heigth') -> nullable();
+            $table->integer('height') -> nullable();
             $table->timestamps();
         });
     }

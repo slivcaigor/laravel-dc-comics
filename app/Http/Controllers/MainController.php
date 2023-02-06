@@ -8,7 +8,7 @@ class MainController extends Controller
 {
     public function home() {
 
-        $humans = Human :: all();
+        $humans = Human::orderBy('created_at', 'desc')->get();
 
         return view('pages.home', compact('humans'));
 
@@ -26,4 +26,29 @@ class MainController extends Controller
         return redirect() -> route('human.home');
     }
 
+    public function humanCreate() {
+
+        return view('pages.humanCreate');
+    }
+
+    public function humanStore(Request $request) {
+
+        $data = $request -> validate([
+            'firstName' => 'required|string|max:32',
+            'lastName' => 'required|string|max:32',
+            'dateOfBirth' => 'date|before_or_equal:today',
+            'height' => 'nullable|integer|min:0|max:300',
+        ]);
+    
+        $human = new Human();
+    
+        $human -> firstName = $data['firstName'];
+        $human -> lastName = $data['lastName'];
+        $human -> dateOfBirth = $data['dateOfBirth'];
+        $human -> height = $data['height'];
+    
+        $human -> save();
+    
+        return redirect() -> route('human.home');
+    }
 }
