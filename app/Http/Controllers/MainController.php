@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Human;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function home() {
 
-        return view('pages.home');
+        $humans = Human :: all();
+
+        // $data = [
+        //     'tasks' => $tasks
+        // ];
+
+        return view('pages.home', compact('humans'));
     }
 }

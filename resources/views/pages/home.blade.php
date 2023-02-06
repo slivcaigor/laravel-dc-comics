@@ -2,6 +2,15 @@
 
 @section('content')
     
-    <h1>Welcome Humans</h1>
+    <h1>Humans</h1>
+    <ul>
+        @foreach ($humans as $human)
+            <li>
+              {{ $human -> firstName }} {{ $human -> lastName }} <br>
+              {{ $human -> dateOfBirth }} <br>
+              {{ $human -> heigth }} cm
+            </li>
+        @endforeach
+    </ul>
 
 @endsection
