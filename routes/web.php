@@ -12,7 +12,10 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController :: class, 'home']);
+Route::get('/', [MainController :: class, 'home']) -> name('human.home');
 
 Route :: get('/human/show/{human}', [MainController :: class, 'humanShow'])
     -> name('human.show');
+
+Route :: get('/human/delete/{human}', [MainController :: class, 'humanDelete'])
+    -> name('human.delete');
