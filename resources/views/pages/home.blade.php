@@ -14,10 +14,13 @@
             </li>
             <a href="{{ route('human.show', $human) }}">
               Show Details
-          </a> <br>
+          </a><br>
           <a href="{{ route('human.delete', $human) }}">
             Delete Details
-        </a>
+        </a><br>
+        <a href="{{ route('human.edit', $human) }}">
+            Edit Details
+        </a><br>
         @endforeach
     </ul>
 
