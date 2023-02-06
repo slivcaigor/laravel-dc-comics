@@ -10,10 +10,14 @@ class MainController extends Controller
 
         $humans = Human :: all();
 
-        // $data = [
-        //     'tasks' => $tasks
-        // ];
-
         return view('pages.home', compact('humans'));
+
     }
+
+    public function humanShow(Human $human) {
+        
+        return view('pages.humanShow', compact('human'));
+    }
+    
+
 }

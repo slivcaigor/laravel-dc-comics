@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 /*
@@ -14,3 +13,6 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController :: class, 'home']);
+
+Route :: get('/human/show/{human}', [MainController :: class, 'humanShow'])
+    -> name('human.show');

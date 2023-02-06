@@ -10,6 +10,9 @@
               {{ $human -> dateOfBirth }} <br>
               {{ $human -> heigth }} cm
             </li>
+            <a href="{{ route('human.show', $human) }}">
+              Show Details
+          </a>
         @endforeach
     </ul>
 
