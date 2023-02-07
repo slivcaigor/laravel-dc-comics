@@ -20,7 +20,10 @@ class HumanFactory extends Factory
             'firstName' => fake() -> firstName(),
             'lastName' => fake() -> lastName(),
             'dateOfBirth' => fake() -> dateTime(),
-            'height' => fake() -> numberBetween(0, 300),
+            'height' => fake() -> numberBetween(100, 200),
+            // 'height' => fake() -> boolean() 
+            // ? fake() -> numberBetween(100, 200)
+            // : null,
         ];
     }
 }

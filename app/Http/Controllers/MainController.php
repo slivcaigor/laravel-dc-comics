@@ -34,20 +34,13 @@ class MainController extends Controller
     public function humanStore(Request $request) {
 
         $data = $request -> validate([
-            'firstName' => 'required|string|max:32',
-            'lastName' => 'required|string|max:32',
-            'dateOfBirth' => 'date|before_or_equal:today',
-            'height' => 'nullable|integer|min:0|max:300',
+            'firstName' => 'required|string|alpha|max:32',
+            'lastName' => 'required|string|alpha|max:32',
+            'dateOfBirth' => 'required|date|before_or_equal:today',
+            'height' => 'nullable|integer|min:40|max:450',
         ]);
     
-        $human = new Human();
-    
-        $human -> firstName = $data['firstName'];
-        $human -> lastName = $data['lastName'];
-        $human -> dateOfBirth = $data['dateOfBirth'];
-        $human -> height = $data['height'];
-    
-        $human -> save();
+        $human = Human :: create($data);
     
         return redirect() -> route('human.home');
     }
@@ -62,19 +55,14 @@ class MainController extends Controller
     public function humanUpdate(Request $request, Human $human) {
 
         $data = $request -> validate([
-            'firstName' => 'required|string|max:32',
-            'lastName' => 'required|string|max:32',
-            'dateOfBirth' => 'date|before_or_equal:today',
-            'height' => 'nullable|integer|min:0|max:300',
+            'firstName' => 'required|string|alpha|max:32',
+            'lastName' => 'required|string|alpha|max:32',
+            'dateOfBirth' => 'required|date|before_or_equal:today',
+            'height' => 'nullable|integer|min:40|max:450',
         ]);
-    
-        $human -> firstName = $data['firstName'];
-        $human -> lastName = $data['lastName'];
-        $human -> dateOfBirth = $data['dateOfBirth'];
-        $human -> height = $data['height'];
-    
-        $human -> save();
-    
+
+        $human = $human -> update($data);
+
         return redirect() -> route('human.home');
     }
 }
